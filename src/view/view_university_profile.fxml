@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewUniProfileController">
+
+    <top>
+        <VBox alignment="TOP_CENTER">
+            <children>
+                <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+                    <children>
+                        <Label text="NextStepUni" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="50.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+                    <children>
+                        <Button fx:id="homeButton" onAction="#homeBtnClicked" prefHeight="45" prefWidth="45" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/icons/home.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="15.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+
+                        <HBox HBox.hgrow="ALWAYS" />
+
+                        <StackPane>
+                            <children>
+                                <Button fx:id="loginButton" onAction="#handleLoginRegister" style="-fx-background-color: white; -fx-background-radius: 5;" text="Login/Register">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+
+                                <MenuButton fx:id="profileButton" contentDisplay="GRAPHIC_ONLY" managed="true" style="-fx-background-color: transparent;" visible="true">
+                                    <items>
+                                        <MenuItem text="View Profile" />
+                                        <MenuItem text="Logout" />
+                                    </items>
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@/images/icons/profile_icon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuButton>
+                            </children>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </StackPane>
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="50.0" spacing="10.0" style="-fx-background-color: transparent;">
+                    <children>
+                        <Button fx:id="backButton" onAction="#handleBackButton" style="-fx-background-color: #f00202; -fx-text-fill: WHITE; -fx-font-weight: bold;" text="Back">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label fx:id="uniNameProfileLabel" text="View University Profile">
+                            <font>
+                                <Font name="Bodoni MT Condensed Bold" size="27.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+            <HBox fx:id="uniLogoHBox" alignment="CENTER" prefHeight="130.0" prefWidth="600.0">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="120.0" prefWidth="400.0" style="-fx-border-color: #ff3131; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #ffffff;">
+                        <children>
+                            <ImageView fx:id="uniLogoImageView" fitHeight="110.0" fitWidth="250.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@/images/icons/placeholder.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </HBox>
+                </children>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10.0">
+                <children>
+                    <Button fx:id="descriptionButton" onAction="#handleDescriptionClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Description">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Button>
+                    <Button fx:id="locationButton" onAction="#handleLocationClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Location">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Button>
+                    <Button fx:id="reviewsButton" onAction="#handleReviewsClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Reviews">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Button>
+                    <Button fx:id="applicationDeadlineButton" onAction="#handleApplicationDeadlineClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Application Deadline">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Button>
+                </children>
+            </HBox>
+
+            <StackPane translateY="10.0" VBox.vgrow="ALWAYS">
+                <HBox fx:id="descriptionHBox" style="-fx-border-color: #ff3131; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #ffffff;">
+                    <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" HBox.hgrow="ALWAYS">
+                            <content>
+                                <Label fx:id="descriptionLabel" text="Description will come here" wrapText="true">
+                                    <font><Font size="18.0" /></font>
+                                </Label>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </HBox>
+
+                <HBox fx:id="locationHBox" alignment="CENTER_LEFT" spacing="10.0" style="-fx-border-color: #ff3131; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #ffffff;" visible="false">
+                    <children>
+                        <ImageView fitHeight="127.0" fitWidth="149.0" preserveRatio="true">
+                            <image><Image url="@/images/icons/location.png" /></image>
+                        </ImageView>
+                        <Label fx:id="locationLabel" text="Location will come here">
+                            <font><Font name="System Bold Italic" size="14.0" /></font>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <HBox fx:id="uniProfileReviewHBox" style="-fx-border-color: #ff3131; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #ffffff;" visible="false">
+                    <children>
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <children>
+                                <HBox fx:id="reviewsHeaderHBox" alignment="CENTER_LEFT" spacing="80">
+                                    <children>
+                                        <Label fx:id="uniNameReviewsLabel" text="UniversityName">
+                                            <font><Font name="System Bold" size="13.0" /></font>
+                                        </Label>
+                                        <Label text="Date Posted" translateX="750.0">
+                                            <font><Font name="System Bold Italic" size="13.0" /></font>
+                                        </Label>
+                                        <Label text="Rating (out of 5)" translateX="850.0">
+                                            <font><Font name="System Bold" size="13.0" /></font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+
+                                <ScrollPane fx:id="reviewsScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <VBox fx:id="reviewsVBox" prefWidth="650.0" spacing="5" />
+                                    </content>
+                                </ScrollPane>
+
+                                <TextArea fx:id="reviewTextArea" prefHeight="150.0" promptText="Full review..." visible="false" wrapText="true" />
+                                <Button fx:id="reviewBackButton" onAction="#handleReviewBack" style="-fx-background-color: #f00202; -fx-text-fill: white;" text="Back to Reviews" visible="false" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <HBox fx:id="appDeadlineHBox" alignment="CENTER_LEFT" spacing="10.0" style="-fx-border-color: #ff3131; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #ffffff;" visible="false">
+                    <children>
+                        <ImageView fitHeight="127.0" fitWidth="149.0" preserveRatio="true">
+                            <image><Image url="@/images/icons/deadline.png" /></image>
+                        </ImageView>
+                        <Label fx:id="appDeadlineLabel" text="Deadline will come here">
+                            <font><Font name="System Bold Italic" size="14.0" /></font>
+                        </Label>
+                    </children>
+                </HBox>
+            </StackPane>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Label text="For more university information click this link:">
+                    <font><Font name="System Bold Italic" size="15.0" /></font>
+                </Label>
+                <Label fx:id="websiteLink" text="Uni Link" textFill="#f00202">
+                    <font><Font name="System Bold Italic" size="15.0" /></font>
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

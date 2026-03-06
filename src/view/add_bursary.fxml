@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddBursaryController">
+    <top>
+        <VBox alignment="TOP_CENTER" prefWidth="800.0">
+            <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+                <children>
+                    <Label text="NextStepUni" textFill="WHITE">
+                        <font>
+                            <Font name="Britannic Bold" size="50.0" />
+                        </font>
+                    </Label>
+                </children>
+            </StackPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+                <children>
+                    <Button fx:id="homeBtn" onAction="#homeBtnClicked" prefWidth="45" prefHeight="45" style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" pickOnBounds="true">
+                                <image>
+                                    <Image url="@/images/icons/home.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="15.0" />
+                        </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                    </Button>
+                    <HBox HBox.hgrow="ALWAYS" />
+
+                    <StackPane>
+                        <children>
+                            <MenuButton fx:id="profileButton" contentDisplay="GRAPHIC_ONLY" managed="false" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#handleViewProfile" text="View Profile" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                                </items>
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@/images/icons/profile_icon.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </MenuButton>
+                        </children>
+                        <HBox.margin>
+                            <Insets right="20.0" />
+                        </HBox.margin>
+                    </StackPane>
+                </children>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_LEFT" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Add Bursary">
+                    <font>
+                        <Font name="Bodoni MT Condensed Bold" size="27.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="150.0" top="30.0" />
+                    </VBox.margin>
+                </Label>
+                <GridPane hgap="10.0" prefHeight="300.0" prefWidth="600.0" vgap="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="400.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+
+                    </rowConstraints>
+                    <children>
+                        <Label text="Bursary Name:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label text="Website Link:" GridPane.rowIndex="1">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label text="Application Deadline:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                        </Label>
+                        <Label text="Description:" GridPane.rowIndex="3">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="bursaryNameField" promptText="Enter Bursary Name" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="1" />
+                        <TextField fx:id="websiteLinkField" promptText="https://example.com" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="applicationDeadlineField" prefWidth="400.0" promptText="YYYY / MM / DD" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Select Qualifications:" GridPane.rowIndex="4">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+
+                        <ListView fx:id="qualificationListView"
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="4"
+                                  prefHeight="120.0"
+                                  style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;">
+                        </ListView>
+
+                    </children>
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="20.0" />
+                    </VBox.margin>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="80.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets right="50.0" />
+            </padding>
+            <children>
+                <Button  onAction="#handleSave" prefWidth="80.0" style="-fx-background-color: #d51e1e;-fx-text-fill: white; -fx-font-weight: bold;" text="Save">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Button>
+                <Button  onAction="#handleCancel" prefWidth="80.0" style="-fx-background-color: #e0e0e0;  -fx-font-weight: bold;" text="Cancel" >
+                    <font>
+                        <Font size="14.0" />
+                    </font></Button>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

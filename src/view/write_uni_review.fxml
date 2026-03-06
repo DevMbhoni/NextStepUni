@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WriteUniReviewController">
+   <top>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+               <children>
+                  <Label text="NextStepUni" textFill="WHITE">
+                     <font>
+                        <Font name="Britannic Bold" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+
+
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+               <children>
+                  <Button fx:id="homeButton" onAction="#homeBtnClicked" prefHeight="45" prefWidth="45" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/icons/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <HBox HBox.hgrow="ALWAYS" />
+
+                  <StackPane>
+                     <children>
+                        <MenuButton fx:id="profileButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="true">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleViewProfile" text="View Profile" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                           </items>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/images/icons/profile_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox spacing="10" BorderPane.alignment="TOP_CENTER">
+         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+            <children>
+               <Button onAction="#handleBackClick" style="-fx-background-color: #d51e1e; -fx-text-fill: white; -fx-font-weight: bold;" text="Back">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+               <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                  <children>
+                     <Label text="Write University Review">
+                        <font>
+                           <Font name="Bodoni MT Condensed Bold" size="27.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               <Region prefWidth="75.0" />
+            </children>
+            <padding>
+               <Insets left="20.0" right="20.0" top="10.0" />
+            </padding>
+         </HBox>
+
+         <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <children>
+               <TextArea fx:id="TextAreaC100" prefHeight="140.0" prefWidth="560.0" promptText="Write your Review here..." style="-fx-background-color: #d9d9d9;" wrapText="true">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </TextArea>
+            </children>
+         </HBox>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="80.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+         <children>
+            <Button fx:id="submitBtn" onAction="#handleSave" prefWidth="80.0" style="-fx-background-color: #d51e1e;-fx-text-fill: white; -fx-font-weight: bold;" text="Submit">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button onAction="#handleCancel" prefWidth="80.0" style="-fx-background-color: #e0e0e0;  -fx-font-weight: bold;" text="Cancel">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

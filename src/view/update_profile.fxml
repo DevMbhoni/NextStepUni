@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateProfileController">
+   <top>
+      <VBox alignment="TOP_CENTER" prefWidth="800.0">
+         <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+            <children>
+               <Label text="NextStepUni" textFill="WHITE">
+                  <font>
+                     <Font name="Britannic Bold" size="50.0" />
+                  </font>
+               </Label>
+            </children>
+         </StackPane>
+         <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+            <children>
+               <Button fx:id="homeBtn" onAction="#handleHome" prefHeight="45" prefWidth="45" style="-fx-background-color: transparent;">
+                  <graphic>
+                     <ImageView fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@/images/icons/home.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                     <Insets left="15.0" />
+                  </HBox.margin>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+               <HBox HBox.hgrow="ALWAYS" />
+               <StackPane>
+                  <children>
+                     <Button fx:id="loginButton" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 5;" text="Login/Register" visible="false" />
+                     <MenuButton fx:id="profileButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                        <items>
+                           <MenuItem mnemonicParsing="false" onAction="#handleViewProfile" text="View Profile" />
+                           <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                        </items>
+                        <graphic>
+                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@/images/icons/profile_icon.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </MenuButton>
+                  </children>
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </StackPane>
+            </children>
+         </HBox>
+      </VBox>
+   </top>
+   <center>
+      <!-- ADDED SCROLLPANE to make content scrollable -->
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;">
+         <content>
+            <VBox alignment="TOP_CENTER" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="30.0" />
+               </padding>
+               <children>
+                  <Label text="Update Your Profile" style="-fx-text-fill: black;">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <!-- Main Information Card -->
+                  <VBox maxWidth="800.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                     <children>
+                        <Label text="Personal Information" style="-fx-text-fill: black;">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="10" vgap="15.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" prefWidth="150.0" />
+                              <ColumnConstraints halignment="LEFT" prefWidth="400.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <!-- ADDED ROW for proof of reg -->
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="First Name:" style="-fx-text-fill: black;" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="fnameTxt" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Last Name:" style="-fx-text-fill: black;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="lnameTxt" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Email:" style="-fx-text-fill: black;" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="emailTxt" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Date of Birth:" style="-fx-text-fill: black;" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dobPicker" prefWidth="400.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="University:" style="-fx-text-fill: black;" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="universityComboBox" prefWidth="400.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                              <!-- ADDED Proof of Registration Row -->
+                              <Label text="Proof of Registration:" style="-fx-text-fill: black;" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <children>
+                                    <Button fx:id="importProofBtn" onAction="#handleImportProof" style="-fx-background-color: #d51e1e; -fx-text-fill: white;" text="Import New Proof" />
+                                    <Label fx:id="proofFileNameLabel" style="-fx-text-fill: black;" text="No file selected." />
+                                 </children>
+                              </HBox>
+
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <!-- Password Update Card -->
+                  <VBox maxWidth="800.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                     <children>
+                        <Label text="Change Password (Optional)" style="-fx-text-fill: black;">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="10" vgap="15.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" prefWidth="150.0" />
+                              <ColumnConstraints halignment="LEFT" prefWidth="400.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Current Password:" style="-fx-text-fill: black;" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="currentPasswordTxt" promptText="Required to change password" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                              <Label text="New Password:" style="-fx-text-fill: black;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="newPasswordTxt" promptText="Leave blank to keep the same" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                              <Label text="Confirm Password:" style="-fx-text-fill: black;" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="confirmPasswordTxt" promptText="Leave blank to keep the same" style="-fx-border-color: #cccccc; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="80.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+         <children>
+            <Button fx:id="saveChangesBtn" onAction="#handleSaveChanges" prefWidth="120.0" style="-fx-background-color: #d51e1e; -fx-text-fill: white; -fx-font-weight: bold;" text="Save Changes">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="cancelBtn" onAction="#handleCancel" prefWidth="80.0" style="-fx-background-color: #e0e0e0; -fx-font-weight: bold;" text="Cancel">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WriteReviewsController">
+    <top>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <children>
+
+                <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+                    <children>
+                        <Label text="NextStepUni" textFill="WHITE">
+                            <font>
+                                <Font name="Britannic Bold" size="50.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+                    <children>
+                        <Button fx:id="homeBtn" onAction="#homeBtnClicked" prefWidth="45" prefHeight="45" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@/images/icons/home.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="15.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <HBox HBox.hgrow="ALWAYS" />
+                        <StackPane>
+                            <children>
+                                <Button fx:id="loginButton" text="Login/Register" onAction="#handleLoginRegister" style="-fx-background-color: white; -fx-background-radius: 5;" visible="false">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <MenuButton fx:id="profileButton" contentDisplay="GRAPHIC_ONLY" style="-fx-background-color: transparent;" managed="false" visible="false">
+                                    <items>
+                                        <MenuItem text="View Profile" onAction="#handleViewProfile"/>
+                                        <MenuItem text="Logout" onAction="#handleLogout"/>
+                                    </items>
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@/images/icons/profile_icon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </MenuButton>
+                            </children>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </StackPane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="25.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
+            </padding>
+            <children>
+
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button onAction="#handleBackClick" style="-fx-background-color: #d51e1e; -fx-text-fill: white; -fx-font-weight: bold;" text="Back">
+                            <font><Font size="14.0" /></font>
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label fx:id="titleLabel" text="Select Type of Review">
+                            <font>
+                                <Font name="Bodoni MT Condensed Bold" size="27.0" />
+                            </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button text="Back" opacity="0.0" disable="true"><font><Font size="14.0" /></font></Button>
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER" spacing="40.0">
+                    <VBox.margin><Insets top="20.0"/></VBox.margin>
+                    <children>
+                        <VBox fx:id="universityCardVBox" alignment="CENTER" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #d51e1e; -fx-border-radius: 10; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/icons/universities_icon.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="WriteUniReviewButton" mnemonicParsing="false" onAction="#onHandleWriteUniReviewButton" style="-fx-background-color: #d51e1e;" text="Write University Review" textFill="WHITE">
+                                    <font><Font name="System Bold" size="13.0" /></font>
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                            </children>
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </VBox>
+
+                        <VBox fx:id="bursaryCardVBox" alignment="CENTER" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #d51e1e; -fx-border-radius: 10; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/icons/bursaries_icon.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="WriteBursaryReviewButton" mnemonicParsing="false" onAction="#onHandleWriteBursaryReviewButton" style="-fx-background-color: #d51e1e;" text="Write Bursary Review" textFill="WHITE">
+                                    <font><Font name="System Bold" size="13.0" /></font>
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                            </children>
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

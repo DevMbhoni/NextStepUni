@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateQualificationController" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #f7f7f7;">
+
+   <top>
+      <VBox alignment="TOP_CENTER" prefWidth="800.0">
+         <StackPane alignment="CENTER" prefHeight="70.0" style="-fx-background-color: #ff3131;">
+            <children>
+               <Label text="NextStepUni" textFill="WHITE">
+                  <font>
+                     <Font name="Britannic Bold" size="50.0" />
+                  </font>
+               </Label>
+            </children>
+         </StackPane>
+
+         <HBox alignment="CENTER_LEFT" prefHeight="50.0" style="-fx-background-color: #d51e1e;">
+            <children>
+               <Button fx:id="homeBtn" onAction="#homeBtnClicked"
+                       prefWidth="45" prefHeight="45"
+                       style="-fx-background-color: transparent;">
+                  <graphic>
+                     <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" pickOnBounds="true">
+                        <image>
+                           <Image url="@/images/icons/home.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                     <Insets left="15.0" />
+                  </HBox.margin>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+
+               <HBox HBox.hgrow="ALWAYS" />
+
+               <MenuButton fx:id="profileButton"
+                           contentDisplay="GRAPHIC_ONLY"
+                           style="-fx-background-color: transparent;"
+                           visible="false" managed="false">
+                  <items>
+                     <MenuItem text="View Profile" onAction="#handleViewProfile" />
+                     <MenuItem text="Logout" onAction="#handleLogout" />
+                  </items>
+                  <graphic>
+                     <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true" pickOnBounds="true">
+                        <image>
+                           <Image url="@/images/icons/profile_icon.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </MenuButton>
+            </children>
+         </HBox>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="20" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="30.0" left="50.0" right="50.0" />
+         </padding>
+
+         <Label text="Update Qualification">
+            <font>
+               <Font name="Bodoni MT Condensed Bold" size="27.0" />
+            </font>
+         </Label>
+
+         <GridPane hgap="15" vgap="15" alignment="CENTER">
+            <columnConstraints>
+               <ColumnConstraints halignment="RIGHT" prefWidth="200.0" />
+               <ColumnConstraints halignment="LEFT" prefWidth="300.0" />
+            </columnConstraints>
+
+            <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="updateNameTxt" promptText="Enter qualification name" prefHeight="30.0" prefWidth="300.0" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Type:" GridPane.rowIndex="1" GridPane.columnIndex="0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="qualificationTypes"  prefHeight="30.0" prefWidth="300.0" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Faculty:" GridPane.rowIndex="2" GridPane.columnIndex="0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="qualificationFaculties" prefHeight="30.0" prefWidth="300.0" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <Label fx:id="nameErrLbl" textFill="RED"
+                   GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Label fx:id="typeErrLbl" textFill="RED"
+                   GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            <Label fx:id="facultyErrLbl" textFill="RED"
+                   GridPane.rowIndex="5" GridPane.columnIndex="1" />
+         </GridPane>
+
+         <Label fx:id="errorLbl" textFill="RED">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </VBox>
+   </center>
+
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets right="50.0" top="10.0" bottom="10.0" />
+         </padding>
+         <children>
+            <Button onAction="#updateQualificationOnAction" prefWidth="100.0"
+                    style="-fx-background-color: #d51e1e; -fx-text-fill: white; -fx-font-weight: bold;"
+                    text="Update">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button onAction="#handleCancel" prefWidth="100.0"
+                    style="-fx-background-color: #e0e0e0; -fx-font-weight: bold;"
+                    text="Cancel">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

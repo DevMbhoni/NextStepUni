@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+    <fx:define>
+        <ToggleGroup fx:id="roleGroup"/>
+    </fx:define>
+    <children>
+        <VBox alignment="CENTER" maxWidth="400.0" spacing="15.0">
+
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <Label text="Welcome Back to NextStepUni">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+
+            <TextField fx:id="emailField" promptText="Email address" prefHeight="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #cccccc;" />
+
+            <StackPane>
+                <children>
+
+                    <TextField fx:id="passwordTextField" managed="false" promptText="Password" prefHeight="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #cccccc;" visible="false" />
+
+                    <PasswordField fx:id="passwordField" promptText="Password" prefHeight="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #cccccc;" />
+                </children>
+            </StackPane>
+
+
+            <HBox alignment="CENTER_LEFT">
+                <children>
+                    <CheckBox fx:id="showPasswordCheckBox" mnemonicParsing="false" onAction="#handleShowPassword" text="Show Password" />
+                </children>
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <children>
+                    <Label text="Forgot Password? " />
+                    <Hyperlink onAction="#handleResetPassword" text="[Reset]" textFill="#d51e1e">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Hyperlink>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20">
+                <children>
+                    <RadioButton fx:id="adminRadio" text="Admin" toggleGroup="$roleGroup"/>
+                    <RadioButton fx:id="studentRadio" text="Student" toggleGroup="$roleGroup" selected="true"/>
+                </children>
+            </HBox>
+
+            <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #d51e1e; -fx-background-radius: 5;" text="Login" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Button>
+
+            <HBox alignment="CENTER">
+                <children>
+                    <Label text="Don't have an account? " />
+                    <Hyperlink onAction="#handleRegister" text="[Register Here]" textFill="#d51e1e">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Hyperlink>
+                </children>
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+
+
+            </HBox>
+            <Hyperlink onAction="#handleContinueAsGuest" text="Continue as Guest" textFill="#d51e1e">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Hyperlink>
+
+        </VBox>
+
+    </children>
+</StackPane>
